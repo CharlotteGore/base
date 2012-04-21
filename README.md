@@ -73,48 +73,31 @@ Static methods are only available on the object created with `base.createChild()
 
 	Foo.secretOfLifeTheUniverseAndEverything() === 42 // TRUE
 
-
 ### createChild
 
 Any object created with `base.createChild()` also has the `createChild` method, which means you can create a whole bunch of instance and static methods on one child of base, then inherit (and override) those later on.
 
 	var Horse = base.createChild()
-
 		.AddInstanceMethods({
-
 			name : function(){
-
 				return "Horse"
-
 			},
-
 			legs : function(){
-
 				return 4;
-
 			},
-
 			goFaster : function(){
-
 				this.speed++;
-
 			}
-
 		});
 
 	var Unicorn = Horse.createChild()
 		.AddInstanceMethods({
 			name : function(){
-
 				return "Unicorn";
-
 			},
 			kill : function(){
-
 				// extra functionality available to unicorns
-
 			}
-
 		});
 
 	var uni = Unicorn();
