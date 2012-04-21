@@ -4,6 +4,14 @@ Base is a lightweight framework for creating consistent, highly readable, chaina
 
 Shiny!
 
+Base doesn't pretend Javascript is a genuine OO language. There are no faked private, public methods and properties, etc.
+
+What it does have is a constructor that is always run, by default, when an instance of a base child is involved.
+
+This constructor is `init()`. By adding your own instance method called `init` to your base child, you can override the default constructor behaviour and do smoething more interesting. 
+
+I've been using Base for over a year for developing client side JS apps. This is an attempt to move it into the node space.
+
 ## The detail
 
 So, here's some examples and stuff.
