@@ -4,7 +4,7 @@ Base is a lightweight framework for creating consistent, highly readable, chaina
 
 Shiny!
 
-Base doesn't pretend Javascript is a genuine OO language. There are no faked private, public methods and properties, etc.
+Base doesn't pretend Javascript is a traditional class based OO language. There are no faked private, public methods and properties, etc.
 
 What it does have is a constructor that is always run, by default, when an instance of a base child is involved.
 
@@ -44,7 +44,11 @@ So, here's some examples and stuff.
 			}
 		});
 
-	var myInstance = MyFactory({ hello : 'world'}).spewArgs() // outputs {hello : 'world'} to the console
+	// create in instance of MyFactory, executing Init automatically
+	var myInstance = MyFactory('Hello world');
+
+	// myInstance.args is now 'Hello world'
+	myInstance.spewArgs() // outputs 'Hello world' to the console
 
 Objects created with `base.createChild()` have a number of static methods which are used to build your factory.
 
