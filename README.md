@@ -33,10 +33,17 @@ So, here's some examples and stuff.
 	// executed automatically when the object is invoked, and another 
 	// instance method.
 
-	var MyFactory = base.createChild()
-		.AddInstanceMethods({
+	var MyFactory = base.createChild();
+
+
+	MyFactory.AddInstanceMethods({
+
+			// arguments passed to MyFactory() are forwarded to init..
 			init : function( args ){
 				this.args = args;
+
+				// return our instance of MyFactory, which will have the 
+				// 'spewArgs' method as well
 				return this;
 			},
 			spewArgs : function(){
@@ -44,11 +51,14 @@ So, here's some examples and stuff.
 			}
 		});
 
-	// create in instance of MyFactory, executing Init automatically
+	// create an instance of MyFactory with 'Hello world' as the args, executing init automatically
 	var myInstance = MyFactory('Hello world');
 
 	// myInstance.args is now 'Hello world'
 	myInstance.spewArgs() // outputs 'Hello world' to the console
+
+	var myOtherInstance = MyFactory('Goodbye, cruel world');
+	myOtherInstance.spewArgs() // outputs 'Goodbye, cruel world' to the console
 
 Objects created with `base.createChild()` have a number of static methods which are used to build your factory.
 
