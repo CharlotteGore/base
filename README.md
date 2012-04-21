@@ -1,6 +1,6 @@
 ## The summary
 
-Base is a lightweight framework for creating consistent, highly readable, chainable and inheritable object prototypes in Javascript. This git repo is for an NPM module for use with Node. It can be use
+Base is a lightweight framework for creating consistent, highly readable, chainable and inheritable object prototypes in Javascript. This git repo is for an NPM module for use with Node. It can be used in the browser so long as you manually satisfy the [Underscore](http://documentcloud.github.com/underscore/) dependency. You're already using Underscore though, anyway, right?
 
 ## The detail
 
