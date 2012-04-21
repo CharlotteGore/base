@@ -36,7 +36,7 @@ So, here's some examples and stuff.
 	var MyFactory = base.createChild();
 
 
-	MyFactory.AddInstanceMethods({
+	MyFactory.addInstanceMethods({
 
 			// arguments passed to MyFactory() are forwarded to init..
 			init : function( args ){
