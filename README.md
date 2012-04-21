@@ -29,36 +29,40 @@ So, here's some examples and stuff.
 	// Require base...
 	var base = require('base');
  
-	// create a base child. Add the default 'init' constructor which is
-	// executed automatically when the object is invoked, and another 
-	// instance method.
-
+	// create a child of base, giving us a function with some 
+	// useful methods that allows us to build up a prototype...
 	var MyFactory = base.createChild();
 
-
+	// add some instance methods using 'addInstanceMethods'
 	MyFactory.addInstanceMethods({
-
-			// arguments passed to MyFactory() are forwarded to init..
+			// the default constructor. 
 			init : function( args ){
 				this.args = args;
-
-				// return our instance of MyFactory, which will have the 
-				// 'spewArgs' method as well
+				this.something = 0;
 				return this;
 			},
 			spewArgs : function(){
 				console.log(this.args);
+				return this;
+			},
+			setSomething : function( arg ){
+				this.something = arg;
+				return this;
 			}
 		});
 
-	// create an instance of MyFactory with 'Hello world' as the args, executing init automatically
-	var myInstance = MyFactory('Hello world');
+	// execute MyFactory to get an object with 'init' and 'spewArgs' methods. Init is executed 
+	// immediately and automatically, and is passed any arguments passed to MyFactory
+	var myObject = MyFactory('Hello world');
+	myObject.spewArgs() // outputs 'Hello world' to the console
 
-	// myInstance.args is now 'Hello world'
-	myInstance.spewArgs() // outputs 'Hello world' to the console
+	var myOtherObject = MyFactory('Goodbye, cruel world');
+	myOtherObject
+		.spewArgs() // outputs 'Goodbye, cruel world' to the console
+		.setSomething(42); // myOtherObject.something === 42
 
-	var myOtherInstance = MyFactory('Goodbye, cruel world');
-	myOtherInstance.spewArgs() // outputs 'Goodbye, cruel world' to the console
+	myObject.something === 42 // FALSE! It === 0.
+
 
 Objects created with `base.createChild()` have a number of static methods which are used to build your factory.
 
