@@ -10,7 +10,11 @@ So, here's some examples and stuff.
 
 ### Installing
 
+	// in your project directory..
+
 	npm install base-framework
+	cd node_modules/base-framework
+	npm update
 
 ### Example
 
@@ -110,6 +114,8 @@ Any object created with `base.createChild()` also has the `createChild` method, 
 	bill.kill() // doesn't exist
 
 ### Test
+
+Mocha and should are required to run the tests
 
 	make test
 
