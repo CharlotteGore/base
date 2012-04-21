@@ -51,7 +51,7 @@ So, here's some examples and stuff.
 			}
 		});
 
-	// execute MyFactory to get an object with 'init' and 'spewArgs' methods. Init is executed 
+	// execute MyFactory to get an object with 'init', 'spewArgs' and 'setSomething' methods. Init is executed 
 	// immediately and automatically, and is passed any arguments passed to MyFactory
 	var myObject = MyFactory('Hello world');
 	myObject.spewArgs() // outputs 'Hello world' to the console
